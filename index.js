@@ -5,6 +5,7 @@ var PluginError = gutil.PluginError;
 var PLUGIN_NAME = "gulp-hex2signed";
 
 function hexToInt(hex) {
+	hex = hex.substring(1);
 	if (hex.length % 2 != 0) {
 		hex = "0" + hex;
 	}
