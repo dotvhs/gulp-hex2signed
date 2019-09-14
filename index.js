@@ -5,7 +5,6 @@ var PluginError = gutil.PluginError;
 var PLUGIN_NAME = "gulp-hex2signed";
 
 function hexToInt(hex) {
-	hex = hex.substring(1);
 	if (hex.length % 2 != 0) {
 		hex = "0" + hex;
 	}
@@ -18,8 +17,8 @@ function hexToInt(hex) {
 }
 
 var hexint = function(css) {
-	return css.replace(/#[0-9a-fA-f]{3,8}/g, function(match) {
-		var newMatch = match + "; android: " + hexToInt(match);
+	return css.replace(/color:?\s#([0-9a-fA-f]{3,8});/g, function(match, $1) {
+		var newMatch = match + "; android: " + hexToInt($1);
 		return newMatch;
 	});
 };
