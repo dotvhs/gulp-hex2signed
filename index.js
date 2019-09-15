@@ -21,8 +21,8 @@ function hexToInt(hex) {
 
 var hexint = function(css) {
 	return css.replace(/color:?\s#([0-9a-fA-f]{3,8});/g, function(match, $1) {
-		var newMatch = match + "android: " + hexToInt($1) + ";";
-		return newMatch;
+		var match = "color: " + hexToInt($1) + ";";
+		return match;
 	});
 };
 
